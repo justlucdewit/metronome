@@ -1,15 +1,16 @@
 <template>
   <div id="play-button">
     <button class="arrow" @click="$emit('changeMeasure', 1)">
-      🡅
+      <img src="@/assets/images/arrow_up.png" alt="">
     </button>
 
     <button @click="clicked" class="long">
-      {{ state === "pause" ? "▶" : "⏸" }}
+      <img src="@/assets/images/play.png" alt="" v-if="state === 'pause'" >
+      <img src="@/assets/images/pause.png" alt="" v-else >
     </button>
 
     <button class="arrow down" @click="$emit('changeMeasure', -1)">
-      🡅
+      <img src="@/assets/images/arrow_up.png" alt="">
     </button>
   </div>
 </template>

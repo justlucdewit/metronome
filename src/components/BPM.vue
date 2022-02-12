@@ -2,10 +2,18 @@
   <div id="bpm-meter">
 
     <div id="bpm-buttons">
-      <div class="bpm-button topleft" @click="updateBPM(1)"><div class="txt">🡅</div></div>
-      <div class="bpm-button topright" @click="updateBPM(10)"><div class="txt">⯭</div></div>
-      <div class="bpm-button bottomleft" @click="updateBPM(-1)"><div class="txt">🡅</div></div>
-      <div class="bpm-button bottomright" @click="updateBPM(-10)"><div class="txt">⯭</div></div>
+      <div class="bpm-button topleft" @click="updateBPM(1)"><div class="txt">
+        <img src="@/assets/images/arrow_up.png" alt="">
+      </div></div>
+      <div class="bpm-button topright" @click="updateBPM(10)"><div class="txt">
+        <img src="@/assets/images/darrow_up.png" alt="">
+      </div></div>
+      <div class="bpm-button bottomleft" @click="updateBPM(-1)"><div class="txt">
+        <img src="@/assets/images/arrow_up.png" alt="">
+      </div></div>
+      <div class="bpm-button bottomright" @click="updateBPM(-10)"><div class="txt">
+        <img src="@/assets/images/darrow_up.png" alt="">
+      </div></div>
     </div>
 
     <div id="bpm-display">

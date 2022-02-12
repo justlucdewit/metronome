@@ -63,6 +63,9 @@ body {
   font-weight: bold;
   font-size: 30px;
   overflow: hidden;
+  img {
+    width: 30px;
+  }
 }
 
 #app {
