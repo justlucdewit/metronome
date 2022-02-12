@@ -2,23 +2,41 @@
   <div id="bpm-meter">
 
     <div id="bpm-buttons">
-      <div class="bpm-button topleft" @click="bpm += 1"><div class="txt">🡅</div></div>
-      <div class="bpm-button topright" @click="bpm += 10"><div class="txt">⯭</div></div>
-      <div class="bpm-button bottomleft" @click="bpm -= 1"><div class="txt">🡅</div></div>
-      <div class="bpm-button bottomright" @click="bpm -= 10"><div class="txt">⯭</div></div>
+      <div class="bpm-button topleft" @click="updateBPM(1)"><div class="txt">🡅</div></div>
+      <div class="bpm-button topright" @click="updateBPM(10)"><div class="txt">⯭</div></div>
+      <div class="bpm-button bottomleft" @click="updateBPM(-1)"><div class="txt">🡅</div></div>
+      <div class="bpm-button bottomright" @click="updateBPM(-10)"><div class="txt">⯭</div></div>
     </div>
 
     <div id="bpm-display">
-        {{ bpm }} BPM
+        {{ bpm }} BPM <br />
+        {{ measure }} / 4
     </div>
   </div>
 </template>
 
 <script>
 export default {
+  props: {
+    measure: {
+      type: Number,
+      required: true
+    }
+  },
+
   data: () => ({
     bpm: 120
-  })
+  }),
+
+  methods: {
+    updateBPM(amnt) {
+      if (this.bpm + amnt < 30 || this.bpm + amnt > 190)
+        return
+
+      this.bpm += amnt;
+      this.$emit('update');
+    }
+  }
 }
 </script>
 

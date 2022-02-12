@@ -1,7 +1,15 @@
 <template>
   <div id="play-button">
-    <button @click="clicked">
+    <button class="arrow" @click="$emit('changeMeasure', 1)">
+      🡅
+    </button>
+
+    <button @click="clicked" class="long">
       {{ state === "pause" ? "▶" : "⏸" }}
+    </button>
+
+    <button class="arrow down" @click="$emit('changeMeasure', -1)">
+      🡅
     </button>
   </div>
 </template>
@@ -23,18 +31,28 @@ export default {
 
 <style scoped lang="scss">
 #play-button {
-  text-align: center;
   margin-top: 20px;
+  display: flex;
+  justify-content: center;
 
   button {
     border-radius: 0;
     border: none;
     height: 48px;
-    width: 200px;
+    padding: 0 20px;
     background: #24184d;
     font-weight: bold;
     font-size: 20px;
     color: #d4cfe1;
+    margin-left: 10px;
+
+    &.down {
+      transform: rotate(180deg);
+    }
+
+    &.long {
+      width: 150px;
+    }
 
     &:hover {
       cursor: pointer;

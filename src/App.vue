@@ -1,10 +1,11 @@
 <template>
   <div id="app">
-    <audio src="@/assets/sounds/Click1.wav" id="sound-tick"></audio>
+    <audio src="@/assets/sounds/tick.wav" id="sound-tick"></audio>
+    <audio src="@/assets/sounds/tock.wav" id="sound-tock"></audio>
 
-    <BPM ref="bpm" />
+    <BPM ref="bpm" @update="updateBPM" :measure="measure" />
 
-    <PlayButton @play="start" @pause="stop" />
+    <PlayButton @play="start" @pause="stop" @changeMeasure="changeMeasure" />
 
     <div id="credit">
       Made by: Luc de Wit
@@ -26,9 +27,24 @@ export default {
     PlayButton
   },
 
+  data: () => ({
+    measure: 4
+  }),
+
   methods: {
+    changeMeasure(amnt) {
+      this.measure += amnt;
+      this.updateBPM();
+    },
+
+    updateBPM() {
+      this.stop();
+      this.start(this.$refs.bpm.bpm, this.measure);
+    },
+
     start() {
-      Timer.start(this.$refs.bpm.bpm);
+      this.stop();
+      Timer.start(this.$refs.bpm.bpm, this.measure);
     },
 
     stop() {
