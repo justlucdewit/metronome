@@ -1,28 +1,33 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <BPM />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import BPM from "@/components/BPM"
 
 export default {
-  name: 'App',
   components: {
-    HelloWorld
+    BPM
   }
 }
 </script>
 
 <style lang="scss">
+body {
+  padding: 0;
+  margin: 0;
+  background: #1a1233;
+  color: #d4cfe1;
+  font-weight: bold;
+  font-size: 30px;
+  overflow: hidden;
+}
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  min-height: 100vh;
+  min-width: 100vw;
 }
 </style>
