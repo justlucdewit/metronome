@@ -24,9 +24,11 @@ export default {
 
 <style scoped lang="scss">
 #bpm-meter {
-  margin-top: calc(30vh - 100px);
   text-align: center;
   user-select: none;
+  position: relative;
+  margin-top: calc(30vh - 100px);
+  height: 300px;
 
   #bpm-buttons {
     display: grid;
